@@ -1,0 +1,1 @@
+el Id de los videogames tiene que ser sí o sí distinto? si coinciden de casualidad hay que validar que no pase?
