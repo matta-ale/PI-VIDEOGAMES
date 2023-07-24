@@ -7,8 +7,11 @@ const {Videogame} = require('../db.js');
 const getVideogames = async (req, res) => {
   let rawArray = [];
   let pageCount = 0;
-  let next = `${URL}/games${API_KEY_URL}`;
+  let next = `${URL}/games?${API_KEY_URL}`;
   try {
+    
+    const localArray = await Videogame.findAll()
+    
     while (pageCount < 5) {
       pageCount += 1;
       const { data } = await axios.get(next);
@@ -16,9 +19,8 @@ const getVideogames = async (req, res) => {
       next = data.next;
     }
     let array = apiDataFormater(rawArray)
-    const localArray = await Videogame.findAll()
-    array = [...array,...localArray]
-    console.log(array.length);
+    
+    array = [...localArray,...array]
     res.status(200).json(array);
   } catch (error) {
     res.status(500).json(error.message);

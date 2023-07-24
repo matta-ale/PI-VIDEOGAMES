@@ -1,6 +1,5 @@
 const { Videogame, Genre } = require('../db.js');
 require('dotenv').config();
-const { API_KEY_URL, URL } = process.env;
 
 const postVideogame = async (req, res) => {
   const { name, description, platforms, image, released, rating, genreIds } =

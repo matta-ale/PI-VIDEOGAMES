@@ -5,7 +5,7 @@ const { Genre } = require('../db.js')
 
 const getGenres = async (req, res) => {
   try {
-    const { data } = await axios.get(`${URL}/genres${API_KEY_URL}`);
+    const { data } = await axios.get(`${URL}/genres?${API_KEY_URL}`);
     let genresArray = [];
     await data.results.forEach(async (genreObj) => {
       genresArray.push({ id: genreObj.id, name: genreObj.name });

@@ -1,15 +1,19 @@
 
 const apiDataFormater = (rawArray) => {
+    console.log(rawArray);
+    if (rawArray) {
     let platforms = []
     let genres = []
     let array = []
     rawArray.forEach((videogame) => {
+      if (videogame.platforms) {
       videogame.platforms.forEach(platform => {
         platforms.push(platform.platform.name)
-      })
+      })}
+      if (videogame.genres) {
       videogame.genres.forEach(genre => {
         genres.push({id:genre.id,name:genre.name})
-      })
+      })}
       array.push(
         {id:videogame.id,
         name:videogame.name,
@@ -24,6 +28,9 @@ const apiDataFormater = (rawArray) => {
       genres= []
     });
     return array
+  } else {
+    return []
+  }
 }
 
 module.exports = apiDataFormater;
