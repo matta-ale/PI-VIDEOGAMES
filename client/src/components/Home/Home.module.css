@@ -1,0 +1,9 @@
+.home {
+    background-image: url('../../img/pexels-lalesh-aldarwish-194511.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y:auto;
+    width: 100vw;
+    height: 100vh;
+}

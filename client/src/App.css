@@ -1,3 +1,9 @@
+/*#4F9ACA light blue, #000A0C dark blue*/
+:root {
+  --lightBlue: #4F9ACA;
+  --darkBlue: #011b20;
+}
+
 .App {
   text-align: center;
 }
