@@ -2,7 +2,7 @@ const axios = require('axios');
 const apiDataFormater = require('./apiDataFormater')
 require('dotenv').config();
 const { API_KEY_URL, URL } = process.env;
-const {Videogame} = require('../db.js');
+const {Videogame, Genre} = require('../db.js');
 
 const getVideogames = async (req, res) => {
   let rawArray = [];
@@ -10,7 +10,7 @@ const getVideogames = async (req, res) => {
   let next = `${URL}/games?${API_KEY_URL}`;
   try {
     
-    const localArray = await Videogame.findAll()
+    const localArray = await Videogame.findAll({include:{model:Genre,attributes:['id','name']}})
     
     while (pageCount < 5) {
       pageCount += 1;

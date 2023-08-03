@@ -2,15 +2,21 @@ import React from 'react';
 import Card from '../Card/Card';
 import styles from './Cards.module.css';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { getVideogames } from '../../redux/actions';
 
 const Cards = () => {
   const dispatch = useDispatch();
-  const myVideogames = useSelector(state => state.myVideogames)
+  var myVideogames = useSelector(state => state.myVideogames)
+  
   useEffect(() => {
     dispatch(getVideogames());
   }, []);
+
+  // useEffect( () => {
+  //   dispatch(orderAndFilterVideogames())
+  //   console.log('useEffect');
+  // },[myVideogames])
 
   return (
     <div className={styles.container}>

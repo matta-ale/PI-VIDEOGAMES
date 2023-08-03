@@ -1,6 +1,5 @@
 
 const apiDataFormater = (rawArray) => {
-    console.log(rawArray);
     if (rawArray) {
     let platforms = []
     let genres = []
@@ -17,7 +16,7 @@ const apiDataFormater = (rawArray) => {
       array.push(
         {id:videogame.id,
         name:videogame.name,
-        genres: genres,
+        Genres: genres,
         description:videogame.description?videogame.description:"",
         platforms:platforms,
         image:videogame.background_image,

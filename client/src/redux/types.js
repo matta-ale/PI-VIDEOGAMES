@@ -1,1 +1,4 @@
 export const GET_VG = 'GET_VG'
+export const SEARCH_BY_NAME = 'SEARCH_BY_NAME'
+export const ORDER_AND_FILTER_VIDEOGAMES = 'ORDER_AND_FILTER_VIDEOGAMES'
+

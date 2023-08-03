@@ -18,13 +18,12 @@ const regexUUID =
       if (!videogame) {
         const { data } = await axios.get(`${URL}/games/${id}?${API_KEY_URL}`);
         const array = apiDataFormater([data]);
-        res.status(200).json(array);
+        res.status(200).json(array[0]);
       } else {
         res.status(200).json(videogame);
       }
     } catch (error) {
       res.status(500).json(error.message);
-      // res.status(error.response.status).json(error.message);
     }
   };
 
