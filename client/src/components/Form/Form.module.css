@@ -1,0 +1,163 @@
+.warning {
+    color: red;
+    font-size: 12px;
+}
+
+.formContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 100vw;
+    height: auto;
+    color: var(--fontColor)
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../img/form_image3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: .3;
+}
+
+.formDiv {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: auto;
+    padding: 20px;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, rgb(47, 47, 62) 30%, rgba(24, 7, 39, 0.5) 70%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: .7rem;
+    overflow: hidden;
+    transition: .5s all;
+    padding: 40px;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.formDiv label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.videogamesImage {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.title {
+    flex: 1;
+}
+
+.loginImg {
+    max-width: 100px;
+    margin-left: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.leftContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftContainer input,
+.rightContainer input {
+    height: 20px;
+    font-size: 16px;
+    font-family: 'Custom-font';
+}
+
+.rating{
+    width: 85px;
+}
+
+.leftContainer input::placeholder,
+.rightContainer input::placeholder {
+    font-size: 16px;
+    vertical-align: center;
+}
+
+.leftContainer textarea {
+    height: 100px;
+    font-size: 16px;
+    font-family: 'Custom-font';
+}
+
+.rightContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rightContainer label {
+    margin-bottom: 0;
+}
+.checkboxGroup {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    margin: 0;
+}
+
+.checkboxGroup label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkboxGroup input[type="checkbox"] {
+    margin-right: 5px; 
+    margin-left: 0;
+  }
+
+.checkbox {
+    font-size: 12px;
+}
+
+.dateAndRatingDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dateAndRatingSubDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitButton {
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Custom-font';
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(219, 232, 230);
+}

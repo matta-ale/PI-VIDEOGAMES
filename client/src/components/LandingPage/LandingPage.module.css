@@ -1,0 +1,86 @@
+.container {
+  padding: 0;
+  background-image: url('../../img/landing.jpg');
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBackground 2s forwards;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  border-radius: var(--borderRadiusSearchBar);
+  border: none;
+  outline: none;
+  background-color: var(--searchBarSecondColor);
+  color: var(--searchBarFontColor);
+  border: 2px solid #dadada;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+  background-color: #333c4d;
+  background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
+  box-shadow: 0 7px 20px 5px #00000088;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: fadeInDiv 2s 2s forwards;
+  opacity: 0;
+}
+
+.wrapper h1 {
+  font-size: 130px;
+  font-family: 'Custom-font';
+  color: white;
+  margin: 10px 40px;
+}
+
+.wrapper button {
+  margin-top: 50px;
+  font-size: 24px;
+  font-family: 'Custom-font';
+  color: white;
+  height: 60px;
+  width: 200px;
+  border-radius: var(--borderRadiusSearchBar);
+  border: none;
+  outline: none;
+  background-color: var(--searchBarSecondColor);
+  color: var(--searchBarFontColor);
+  border: 2px solid #dadada;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+  background-color: #4a576f;
+  background: linear-gradient(0deg, rgb(51, 56, 65) 0%, rgba(38, 0, 70, 0.5) 100%);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  cursor: pointer;
+}
+
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDiv {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

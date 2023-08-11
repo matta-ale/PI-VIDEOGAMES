@@ -4,7 +4,7 @@ require('dotenv').config();
 const postVideogame = async (req, res) => {
   const { name, description, platforms, image, released, rating, genreIds } =
     req.body;
-  try {
+    try {
     //completar acá el posteo a la BBDD
     const [videogame, created] = await Videogame.findOrCreate({
       where: { name },

@@ -2,7 +2,7 @@ import './App.css';
 import {ROUTES} from './Helpers/PathRouters'
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/Home/Home'
-import Landpage from './components/Landpage/Landpage';
+import LandingPage from './components/LandingPage/LandingPage';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route
           path={ROUTES.LANDPAGE}
-          element={<Landpage/>}
+          element={<LandingPage/>}
         ></Route>
         <Route
           path={ROUTES.HOME}

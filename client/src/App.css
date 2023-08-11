@@ -2,10 +2,31 @@
 :root {
   --lightBlue: #4F9ACA;
   --darkBlue: #011b20;
+  --fontColor: white;
+  --searchBarSecondColor: rgba(78, 75, 75, 0.5);
+  --searchBarFontColor: white;
+  --searchBarPlaceholderColor: rgb(204, 202, 202);
+  --borderRadiusSearchBar: 7px;
+  --fontColorCard: rgb(173, 172, 172);
+}
+
+@font-face {
+  font-family: 'Custom-font';
+  src: url('./fonts/aldrich-regular-webfont.woff2') format('woff2'),
+       url('./fonts/aldrich-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
+
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:'Custom-font', Arial, sans-serif;
+  text-decoration: none;
+  margin: 0;
 }
 
 .App-logo {

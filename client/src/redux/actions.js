@@ -6,6 +6,13 @@ export const getVideogames = () => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get('/videogames');
+      
+      data.forEach(vg => {
+        let genreString = ''
+        vg.Genres.forEach(genre => genreString += `${genre.name}, `)
+        if(genreString.length>0) genreString = genreString.slice(0, -2)
+        vg.Genres = genreString});
+
     return dispatch({
       type: GET_VG,
       payload: data
