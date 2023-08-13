@@ -21,27 +21,25 @@ h4 {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
     color: var(--fontColor); 
-    background-image: url('../../img/DetailBackground.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    padding-top: 85px;
 }
 
 .leftRightWrapper {
     display: flex;
-    border: 1px solid #ffffff22;
-    background-color: #282c34;
+    border: var(--borderGeneric);
+    background-color: var(--modulesBackgroundColor);
+    /* background-color: #282c34;
     background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
     box-shadow: 0 7px 20px 5px #00000088;
     border-radius: .7rem;
     backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px); */
     overflow: hidden;
     transition: .5s all;
-    padding: 20px;
+    padding: 30px;
+    height: 80%;
 }
 
 .leftSubContainer {
@@ -51,22 +49,24 @@ h4 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 
 }
 
 .rightSubContainer {
     width: var(--detailSubContainerWidth);
-    height: var(--detailSubContainerHeight) - 40px;
+    height: var(--detailSubContainerHeight);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 20px 0px;
-    margin-top: 75px;
+    margin-top: 55px;
+    height: 100%;
 }
 
 .nameDiv {
-    margin-top: 20px;
     width: 90%;
+    height: 60px;
 }
 
 .nameDiv h1 {
@@ -77,7 +77,7 @@ h4 {
 .detailImage {
     margin-top: 12px;
     width: 90%;
-    height: 90%;
+    height: 75%;
     border-radius: .5rem;
     object-fit: cover;
     overflow: hidden;
@@ -90,7 +90,7 @@ h4 {
 
 .descriptionContainer {
     position: relative;
-    max-height: 257px;
+    max-height: 215px;
     overflow: hidden;
     z-index: 1; 
     transition: transform 0.3s ease, background-color 0.3s ease, top 0.3s ease, left 0.3s ease, box-shadow 0.3s ease; 

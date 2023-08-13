@@ -7,7 +7,10 @@ import {ROUTES} from '../../Helpers/PathRouters'
 
 const Card = (props) => {
   const { id,name, genres, image} = props;
-
+  let genresString = ''
+  genres.forEach((genre) => (genresString += `${genre.name}, `));
+         if (genresString.length > 0) genresString = genresString.slice(0, -2);
+  
   return (
     <>
       <Link className={styles.link}to={`${ROUTES.DETAIL}${id}`}>
@@ -20,7 +23,7 @@ const Card = (props) => {
             <hr />
             <div className={styles.videogameInfo}>
               <div className={styles.genres}>
-                <p>{genres}</p>
+                <p>{genresString}</p>
               </div>
             </div>
           </div>

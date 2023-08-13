@@ -2,7 +2,7 @@ const axios = require('axios');
 const apiDataFormater = require('./apiDataFormater');
 require('dotenv').config();
 const { API_KEY_URL, URL } = process.env;
-const { Videogame } = require('../db.js');
+const { Videogame, Genre } = require('../db.js');
 const { Op } = require('sequelize');
 
 const getVideogamesByName = async (req, res) => {
@@ -14,6 +14,7 @@ const getVideogamesByName = async (req, res) => {
           [Op.iLike]: `%${name}%`,
         },
       },
+      include: [Genre], attributes: { exclude: ['createdAt','updatedAt'] }
     });
     const { data } = await axios.get(
       `${URL}/games?search=${name}&${API_KEY_URL}`
