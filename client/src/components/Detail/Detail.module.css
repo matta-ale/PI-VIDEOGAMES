@@ -15,7 +15,6 @@ h4 {
     
 }
 
-
 .container {
     display: flex;
     justify-content: center;
@@ -30,16 +29,10 @@ h4 {
     display: flex;
     border: var(--borderGeneric);
     background-color: var(--modulesBackgroundColor);
-    /* background-color: #282c34;
-    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
-    box-shadow: 0 7px 20px 5px #00000088;
-    border-radius: .7rem;
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
     overflow: hidden;
     transition: .5s all;
     padding: 30px;
-    height: 80%;
+    height: 90%;
 }
 
 .leftSubContainer {
@@ -50,6 +43,7 @@ h4 {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    max-height: 550px;
 
 }
 
@@ -60,8 +54,9 @@ h4 {
     flex-direction: column;
     justify-content: flex-start;
     padding: 20px 0px;
-    margin-top: 55px;
+    margin-top: 50px;
     height: 100%;
+    max-height: 550px;
 }
 
 .nameDiv {
@@ -146,15 +141,80 @@ ins {
 
 .ratingLow {
     color: #ee83e5;
-    /* Set your desired color for low ratings */
 }
 
 .ratingMedium {
     color: rgb(255, 253, 109);
-    /* Set your desired color for medium ratings */
 }
 
 .ratingHigh {
     color: rgb(168, 250, 114);
-    /* Set your desired color for high ratings */
 }
+
+@media screen and (max-width: 1090px) {
+    .detailImage {
+        margin-top: 56px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .container{
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .leftRightWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        height: auto;
+        margin-top: 80px;
+    }
+    .rightSubContainer{
+        margin-top: 0px;
+        padding-top:0px;
+    }
+    .detailImage{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        width: 95vw;
+    }
+    .detailImage{
+        width: 95%;
+    }
+    .leftRightWrapper {
+        padding: 0px;
+        width: 95vw;
+    }
+    .leftSubContainer, .rightSubContainer{
+        width: 95%;
+    }
+    .nameDiv h1 {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .container{
+        margin-top: 120px;
+    }
+    .detailImage{
+        margin-top: 80px;
+        width: 100%;
+    }
+    .nameDiv {
+        width: 100%;
+    }
+    .infoDiv{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

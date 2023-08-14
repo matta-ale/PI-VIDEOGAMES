@@ -8,7 +8,7 @@ import {
   setOrder,
   setOrigin,
   setGenre,
-  getVideogames
+  getVideogames,
 } from '../../redux/actions';
 import { ROUTES } from '../../Helpers/PathRouters';
 
@@ -28,11 +28,9 @@ const SearchBar = () => {
   };
 
   const onSearch = (search) => {
-    showingSearch
-      ?dispatch(getVideogames())
-      :dispatch(searchByName(search));
-    
-    setShowingSearch(!showingSearch)
+    showingSearch ? dispatch(getVideogames()) : dispatch(searchByName(search));
+    setPage(1)
+    setShowingSearch(!showingSearch);
   };
   const handleOrderAndFilter = (event) => {
     if (
@@ -94,55 +92,62 @@ const SearchBar = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.linksDiv}>
-        <div className={styles.homeButtonDiv}>
-          <button className={styles.homeButton} onClick={handleHomeClick}>
-            Home
-          </button>
-        </div>
-        <div className={styles.createVideogameDiv}>
-          <button
-            className={styles.createVideogame}
-            onClick={handleCreateVideogameClick}
-          >
-            Create videogame
-          </button>
-        </div>
-      </div>
-      <div className={styles.searchBarDiv}>
-        <button className={styles.searchIcon} onClick={() => onSearch(search)}>
-          {showingSearch ? '❌' : '🔍'}
-        </button>
-        <input
-          type='search'
-          placeholder='Search games'
-          className={styles.inputBar}
-          onChange={handleChange}
-          value={search}
-        ></input>
-      </div>
-      <div className={styles.filterDiv}>
-        <div className={styles.sortWrapper}>
-          <span>Sort:</span>
-          <div className={styles.sortButtons}>
-            <button
-              className={styles.sortButton1}
-              name='ascending'
-              onClick={setOrderAscending}
-            >
-              &#x25b4; Asc
+      <div className={styles.part1}>
+        <div className={styles.linksDiv}>
+          <div className={styles.homeButtonDiv}>
+            <button className={styles.homeButton} onClick={handleHomeClick}>
+              HOME
             </button>
+          </div>
+          <div className={styles.createVideogameDiv}>
             <button
-              className={styles.sortButton2}
-              name='descending'
-              onClick={setOrderDescending}
+              className={styles.createVideogame}
+              onClick={handleCreateVideogameClick}
             >
-              &#x25be; Des
+              CREATE VIDEOGAME
             </button>
           </div>
         </div>
+        <div className={styles.searchBarDiv}>
+          <button
+            className={styles.searchIcon}
+            onClick={() => onSearch(search)}
+          >
+            {showingSearch ? '❌' : '🔍'}
+          </button>
+          <input
+            type='search'
+            placeholder='Search games'
+            className={styles.inputBar}
+            onChange={handleChange}
+            value={search}
+          ></input>
+        </div>
+      </div>
+      <div className={styles.part2}>
+        <div className={styles.filterDiv}>
+          <div className={styles.sortWrapper}>
+            <span>SORT:</span>
+            <div className={styles.sortButtons}>
+              <button
+                className={styles.sortButton1}
+                name='ascending'
+                onClick={setOrderAscending}
+              >
+                &#x25b4; Asc
+              </button>
+              <button
+                className={styles.sortButton2}
+                name='descending'
+                onClick={setOrderDescending}
+              >
+                &#x25be; Des
+              </button>
+            </div>
+          </div>
+        </div>
         <div className={styles.selectWrapper}>
-          <span>Filter:</span>
+          <span>FILTER:</span>
           <div className={styles.selectButtons}>
             <select
               name='origin'

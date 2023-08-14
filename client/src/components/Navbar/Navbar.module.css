@@ -5,9 +5,7 @@
     margin: 0;
     height: 70px;
     font-family: 'Custom-font';
-    font-size: 20px;
-    /* background-color: #333c4d;
-    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%); */
+    font-size: 16px;
     background-color: var(--modulesBackgroundColor);
     box-shadow: 0 7px 20px 5px #00000088;
     backdrop-filter: blur(7px);
@@ -20,12 +18,29 @@
     border-width: 2px;
 }
 
+.part1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+}
+
+.part2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    margin-right: 30px;
+}
+
 .createVideogame,
 .homeButton,
 .searchBarDiv input,
 .filterDiv {
     font-family: 'Custom-font';
-    font-size: 20px;
+    font-size: 16px;
 }
 
 
@@ -56,12 +71,6 @@
     color: var(--searchBarFontColor);
     border-right: var(--borderGeneric);
     border-width: 2px;
-    /* border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    background-color: #4a576f;
-    background: linear-gradient(0deg, rgb(51, 56, 65) 0%, rgba(38, 0, 70, 0.5) 100%);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
     cursor: pointer;
 }
 
@@ -75,17 +84,9 @@
     height: 100%;
     background-color: transparent;
     border-style: none;
-    /* border-radius: var(--borderRadiusSearchBar);
-    background-color:var(--searchBarSecondColor); */
     color: var(--searchBarFontColor);
     border-right: var(--borderGeneric);
     border-width: 2px;
-    /* border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    background-color: #4a576f;
-    background: linear-gradient(0deg, rgb(51, 56, 65) 0%, rgba(38, 0, 70, 0.5) 100%);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
     cursor: pointer;
 }
 
@@ -112,7 +113,6 @@
     outline: none;
     background-color:var(--searchBarBackgroundColor);
     color: black;
-    /* border: 2px solid #8e8e8e; */
     border: var(--borderGeneric);
     border-width: 2px;
 }
@@ -120,7 +120,7 @@
 .searchIcon {
     position: absolute;
     top:21px;
-    right:28px;
+    right:17px;
     background-color:rgba(255, 0, 0, 0);
     border-radius: var(--borderRadiusSearchBar);
     border: none;
@@ -138,14 +138,14 @@
     display: flex;
     width: 32%;
     margin-right: 30px;
-    margin-left: 30px;
+    margin-left: 10px;
     justify-content: flex-end;
     align-items: center;
     height: 100%;
 }
 
 .sortWrapper{
-    margin-right: 20px;
+    margin-right: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -153,18 +153,11 @@
     height: 100%;
     background-color:transparent;
     color: var(--searchBarFontColor);
-    /* border: 2px solid #dadada;
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    background-color: #4a576f;
-    background: linear-gradient(0deg, rgb(51, 56, 65) 0%, rgba(38, 0, 70, 0.5) 100%);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
 }
 
 .sortWrapper span, .selectWrapper span{
     margin-left: 18px;
+    margin-right: 18px;
 }
 
 
@@ -229,14 +222,6 @@
     height: 100%;
     background-color:transparent;
     color: var(--searchBarFontColor);
-    /*border: 2px solid #dadada;
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-    background-color: #4a576f;
-    background: linear-gradient(0deg, rgb(51, 56, 65) 0%, rgba(38, 0, 70, 0.5) 100%);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px); */
 }
 
 
@@ -247,4 +232,122 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+@media screen and (max-width: 1200px) {
+    .searchBarDiv {
+        width: 40%;
+    }
+    .searchIcon{
+        right:10px;
+    }
+}
+
+@media screen and (max-width: 1115px) {
+    .createVideogame {
+        max-width: 123px;
+        white-space: normal;
+        text-align: center;
+        padding: 0 10px;
+    }
+    .homeButton {
+        max-width: 85px;
+        padding: 0 20px;
+    }
+    .searchIcon{
+        right:8px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .container {
+        flex-direction: column;
+        height: 140px;
+    }
+    .part1 {
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: var(--borderGeneric);
+        border-width: 2px;
+        width: 100%;
+    }
+    .part2 {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .filterDiv {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .linksDiv, .homeButtonDiv, .createVideogameDiv, .filterDiv, .selectWrapper{
+        width:50%;
+    }
+    .searchBarDiv{
+        width: 50%;
+    }
+    .homeButton, .createVideogame {
+        width: 100%;
+        max-width: none;
+    }
+    .searchIcon{
+        right:17px;
+    }
+    .sortWrapper {
+        margin-left: 30px;
+    }
+    .selectWrapper{
+        margin-right: 30px;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .homeButtonDiv{
+        width: 30%;
+    } 
+    .createVideogameDiv{
+        width: 70%;
+    }
+    .container {
+        height: 175px;
+    }
+    .part1 {
+        flex-direction: column;
+    }
+    .part2 {
+        height: 75px;
+        margin:0;
+        justify-content: space-between;
+    }
+    .linksDiv, .searchBarDiv {
+        width: 100%;
+    }
+    .searchIcon{
+        top:11px;
+        right: 15px;
+    }
+    .filterDiv {
+        margin: 0;
+        width: 30%;
+    }
+    .selectWrapper{
+        width: 70%;
+        flex-direction: column;
+        margin: 0;
+        align-items: flex-start;
+    }
+    .sortWrapper {
+        margin: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .sortWrapper span{
+        margin: 0;
+        
+    }
+}
 

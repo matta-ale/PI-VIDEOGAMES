@@ -28,12 +28,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 600px;
     height: auto;
     padding: 20px;
     border: 1px solid #ffffff22;
-    /* background-color: #282c34;
-    background: linear-gradient(0deg, rgb(47, 47, 62) 30%, rgba(24, 7, 39, 0.5) 70%); */
     background-color: var(--modulesBackgroundColor);
     box-shadow: 0 7px 20px 5px #00000088;
     border-radius: .7rem;
@@ -41,8 +39,7 @@
     transition: .5s all;
     padding: 40px;
     font-size: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 30px 40px 30px;
 }
 
 .formDiv label {
@@ -155,4 +152,43 @@
     border-radius: 5px;
     cursor: pointer;
     background-color: rgb(219, 232, 230);
+}
+
+@media screen and (max-width: 520px) {
+    .form {
+        width: 100%;
+    }
+    
+    .formDiv{
+        margin-top:100px; 
+        width: 98%; 
+        padding: 20px 15px;
+    } 
+
+    .leftContainer input, textarea {
+        width: 280px;
+    }
+
+    .dateAndRatingDiv{
+        flex-direction: column;
+    }
+
+    .dateAndRatingDiv input{
+        width: 130px;
+    }
+    .checkboxGroup {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .checkboxGroup {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0px;
+        margin: 0;
+    }
 }
