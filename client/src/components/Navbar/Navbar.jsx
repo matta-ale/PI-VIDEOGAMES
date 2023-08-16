@@ -43,9 +43,9 @@ const SearchBar = () => {
           dispatch(setLoading(false));
         };
         fetchData();
-    }}
-    setPage(1);
-    setShowingSearch(!showingSearch);
+      }}
+      dispatch(setPage(1));
+      setShowingSearch(!showingSearch);
   
 }
   const handleOrderAndFilter = (event) => {
@@ -107,15 +107,25 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.part1}>
-        <div className={styles.linksDiv}>
-          <div className={styles.homeButtonDiv}>
+    <div className={`${styles.container} ${
+      location.pathname === ROUTES.HOME ? styles.containerRes : ''
+    }`}>
+      <div className={`${styles.part1} ${
+      location.pathname === ROUTES.HOME ? styles.part1res : ''
+    }`}>
+        <div className={`${styles.linksDiv} ${
+      location.pathname === ROUTES.HOME ? styles.linksDivRes : ''
+    }`}>
+          <div className={`${styles.homeButtonDiv} ${
+      location.pathname === ROUTES.HOME ? styles.homeButtonDivRes : ''
+    }`}>
             <button className={styles.homeButton} onClick={handleHomeClick}>
               HOME
             </button>
           </div>
-          <div className={styles.createVideogameDiv}>
+          <div className={`${styles.createVideogameDiv} ${
+      location.pathname === ROUTES.HOME ? styles.createVideogameDivRes : ''
+    }`}>
             <button
               className={styles.createVideogame}
               onClick={handleCreateVideogameClick}
@@ -129,7 +139,8 @@ const SearchBar = () => {
             className={styles.searchIcon}
             onClick={() => onSearch(search)}
           >
-            {showingSearch ? '❌' : '🔍'}
+            {/* {showingSearch ? '❌' : '🔍'} */}
+            {showingSearch ? "✕" : "🔍"}
           </button>
           <input
             type='search'
@@ -173,6 +184,7 @@ const SearchBar = () => {
               name='origin'
               className={styles.selectButton}
               onChange={handleOrderAndFilter}
+              value={originFilter}
             >
               <option value='all'>All</option>
               <option value='api'>API</option>
@@ -182,6 +194,7 @@ const SearchBar = () => {
               name='genre'
               className={styles.selectButton}
               onChange={handleOrderAndFilter}
+              value={genreFilter}
             >
               <option value='all'>All</option>
               <option value='4'>Action</option>

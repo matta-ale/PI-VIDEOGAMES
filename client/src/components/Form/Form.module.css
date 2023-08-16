@@ -163,9 +163,11 @@
         width: 98%; 
         padding: 20px 15px;
     } 
-
+    .leftContainer {
+        justify-content: center;
+    }
     .leftContainer input, textarea {
-        width: 280px;
+        width: 95%;
     }
 
     .dateAndRatingDiv{

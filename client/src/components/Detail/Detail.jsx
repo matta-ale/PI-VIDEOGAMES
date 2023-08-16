@@ -2,17 +2,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import styles from './Detail.module.css';
 import { detailDataFormater } from '../../Helpers/detailDataFormater';
 import DOMPurify from 'dompurify';
+import loadingGif from '../../img/loading.gif';
+import { setLoading } from '../../redux/actions';
 
 export default function Detail() {
   const { id } = useParams();
   const [videogame, setVideogame] = useState({});
+  const { loading } = useSelector((state) => state.homeStatus);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(id);
+    dispatch(setLoading(true));
     axios(`/videogames/${id}`).then(({ data }) => {
       if (data.name) {
         data = detailDataFormater(data);
@@ -20,6 +25,7 @@ export default function Detail() {
       } else {
         window.alert('No videogames with that ID');
       }
+      dispatch(setLoading(false));
     });
     return setVideogame({}); // the cleanup function is used to reset the component state to an empty object {} when the component unmounts or before the next effect runs, so that the component is ready to handle a new id prop and avoids any potential issues with stale or incorrect data.
   }, [id]);
@@ -32,52 +38,61 @@ export default function Detail() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.leftRightWrapper}>
-        <div className={styles.leftSubContainer}>
-          <div className={styles.nameDiv}>
-            <h1 className={styles.nameText}>{videogame?.name}</h1>
-          </div>
-          <img
-            className={styles.detailImage}
-            src={videogame?.image}
-            alt='videogame'
-          />
+    <>
+      {loading ? (
+        <div className={styles.loaderContainer}>
+          <h2 className={styles.loaderText}>LOADING</h2>
+          <img src={loadingGif} alt='loading' />
         </div>
-        <div className={styles.rightSubContainer}>
-          <div className={styles.infoDiv}>
-            <div className={styles.rating}>
-              <span>Rating: </span>
-              <ins className={getRatingClassName(videogame?.rating)}>
-                &#x2605;
-              </ins>
-              <p className={getRatingClassName(videogame?.rating)}>
-                {videogame?.rating}
-              </p>
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.leftRightWrapper}>
+            <div className={styles.leftSubContainer}>
+              <div className={styles.nameDiv}>
+                <h1 className={styles.nameText}>{videogame?.name}</h1>
+              </div>
+              <img
+                className={styles.detailImage}
+                src={videogame?.image}
+                alt='videogame'
+              />
             </div>
-            <h4 className={styles.h2Text}>
-              <span>Released: {videogame?.released}</span>
-            </h4>
+            <div className={styles.rightSubContainer}>
+              <div className={styles.infoDiv}>
+                <div className={styles.rating}>
+                  <span>Rating: </span>
+                  <ins className={getRatingClassName(videogame?.rating)}>
+                    &#x2605;
+                  </ins>
+                  <p className={getRatingClassName(videogame?.rating)}>
+                    {videogame?.rating}
+                  </p>
+                </div>
+                <h4 className={styles.h2Text}>
+                  <span>Released: {videogame?.released}</span>
+                </h4>
+              </div>
+              <br />
+              <h4 className={styles.h2Text}>
+                <div className={styles.descriptionContainer}>
+                  <div
+                    className={styles.description}
+                    dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+                  ></div>
+                </div>
+              </h4>
+              <br />
+              <h4 className={styles.h2Text}>
+                <span>Genres: {videogame.Genres}</span>
+              </h4>
+              <br />
+              <h4 className={styles.h2Text}>
+                <span>Platforms: {videogame?.platforms}</span>
+              </h4>
+            </div>
           </div>
-          <br />
-          <h4 className={styles.h2Text}>
-            <div className={styles.descriptionContainer}>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
-              ></div>
-            </div>
-          </h4>
-          <br />
-          <h4 className={styles.h2Text}>
-            <span>Genres: {videogame.Genres}</span>
-          </h4>
-          <br />
-          <h4 className={styles.h2Text}>
-            <span>Platforms: {videogame?.platforms}</span>
-          </h4>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

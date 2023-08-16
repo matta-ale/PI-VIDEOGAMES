@@ -9,7 +9,7 @@
   --searchBarFontColor: white;
   --searchBarPlaceholderColor: rgb(161, 161, 161);
   --borderRadiusSearchBar: 3px;
-  --fontColorCard: rgb(173, 172, 172);
+  --fontColorCard:white;/* rgb(173, 172, 172);*/
   --searchBarButtonsColor: rgba(24, 7, 39, 1);
   --navBarFiltersColor: rgba(40, 38, 50, 0.7);
   --borderGeneric: 1px solid #ffffff22;
