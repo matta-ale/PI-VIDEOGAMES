@@ -31,10 +31,9 @@
     width: 600px;
     height: auto;
     padding: 20px;
-    border: 1px solid #ffffff22;
-    background-color: var(--modulesBackgroundColor);
-    box-shadow: 0 7px 20px 5px #00000088;
-    border-radius: .7rem;
+    background-color: rgba(0, 0, 0,var(--opacity));
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
     overflow: hidden;
     transition: .5s all;
     padding: 40px;

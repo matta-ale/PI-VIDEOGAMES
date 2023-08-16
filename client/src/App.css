@@ -3,7 +3,7 @@
   --lightBlue: #4F9ACA;
   --darkBlue: #011b20;
   --fontColor: white;
-  --modulesBackgroundColor: rgba(0, 0, 0,0.6);
+  --modulesBackgroundColor: rgba(0, 0, 0, 0.6);
   --searchBarSecondColor: rgba(78, 75, 75, 0.5);
   --searchBarBackgroundColor: white;
   --searchBarFontColor: white;
@@ -13,32 +13,47 @@
   --searchBarButtonsColor: rgba(24, 7, 39, 1);
   --navBarFiltersColor: rgba(40, 38, 50, 0.7);
   --borderGeneric: 1px solid #ffffff22;
+  --opacity: 0.85
 }
 
 @font-face {
   font-family: 'Custom-font';
   src: url('./fonts/aldrich-regular-webfont.woff2') format('woff2'),
-       url('./fonts/aldrich-regular-webfont.woff') format('woff');
+    url('./fonts/aldrich-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  
+
 
 }
 
 .App {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family:'Custom-font', Arial, sans-serif;
+  font-family: 'Custom-font', Arial, sans-serif;
   text-decoration: none;
   margin: 0;
   background-image: url('../src/img/background.jpg');
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  overflow:auto;
+  overflow: auto;
+  min-height: 100vh;
+}
+
+.App::before {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  pointer-events: none; 
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -71,6 +86,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

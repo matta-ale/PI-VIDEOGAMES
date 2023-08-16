@@ -1,8 +1,8 @@
 import styles from './Navbar.module.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchByName, setPage } from '../../redux/actions';
+import { searchByName, setPage, setLoading } from '../../redux/actions';
 import {
   orderAndFilterVideogames,
   setOrder,
@@ -15,7 +15,7 @@ import { ROUTES } from '../../Helpers/PathRouters';
 const SearchBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [search, setSearch] = useState('');
   const [showingSearch, setShowingSearch] = useState(false);
 
@@ -28,10 +28,26 @@ const SearchBar = () => {
   };
 
   const onSearch = (search) => {
-    showingSearch ? dispatch(getVideogames()) : dispatch(searchByName(search));
-    setPage(1)
+    if (showingSearch) {
+      dispatch(setLoading(true));
+      const fetchData = async () => {
+        await dispatch(getVideogames());
+        dispatch(setLoading(false));
+      };
+      fetchData();
+    } else {
+      {
+        dispatch(setLoading(true));
+        const fetchData = async () => {
+          await dispatch(searchByName(search));
+          dispatch(setLoading(false));
+        };
+        fetchData();
+    }}
+    setPage(1);
     setShowingSearch(!showingSearch);
-  };
+  
+}
   const handleOrderAndFilter = (event) => {
     if (
       event.target.name === 'ascending' ||
@@ -108,7 +124,7 @@ const SearchBar = () => {
             </button>
           </div>
         </div>
-        <div className={styles.searchBarDiv}>
+        {location.pathname === ROUTES.HOME && <div className={styles.searchBarDiv}>
           <button
             className={styles.searchIcon}
             onClick={() => onSearch(search)}
@@ -122,22 +138,26 @@ const SearchBar = () => {
             onChange={handleChange}
             value={search}
           ></input>
-        </div>
+        </div>}
       </div>
-      <div className={styles.part2}>
+      {location.pathname === ROUTES.HOME &&<div className={styles.part2}>
         <div className={styles.filterDiv}>
           <div className={styles.sortWrapper}>
             <span>SORT:</span>
             <div className={styles.sortButtons}>
               <button
-                className={styles.sortButton1}
+                className={`${styles.sortButton} ${
+                  order === 'ascending' ? styles.sortButtonActive : ''
+                }`}
                 name='ascending'
                 onClick={setOrderAscending}
               >
                 &#x25b4; Asc
               </button>
               <button
-                className={styles.sortButton2}
+                className={`${styles.sortButton} ${
+                  order === 'descending' ? styles.sortButtonActive : ''
+                }`}
                 name='descending'
                 onClick={setOrderDescending}
               >
@@ -151,7 +171,7 @@ const SearchBar = () => {
           <div className={styles.selectButtons}>
             <select
               name='origin'
-              className={styles.selectButton1}
+              className={styles.selectButton}
               onChange={handleOrderAndFilter}
             >
               <option value='all'>All</option>
@@ -160,7 +180,7 @@ const SearchBar = () => {
             </select>
             <select
               name='genre'
-              className={styles.selectButton2}
+              className={styles.selectButton}
               onChange={handleOrderAndFilter}
             >
               <option value='all'>All</option>
@@ -186,7 +206,7 @@ const SearchBar = () => {
             </select>
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

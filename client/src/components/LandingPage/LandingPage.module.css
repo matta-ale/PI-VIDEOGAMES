@@ -1,6 +1,6 @@
 .container {
   padding: 0;
-  background-image: url('../../img/landing.jpg');
+  background-image: url('../../img/landing.png');
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -15,37 +15,34 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  height: 80%;
-  width: 80%;
+  height: 50%;
+  width: 70%;
+  background-color: rgba(0, 0, 0, var(--opacity));
   border-radius: var(--borderRadiusSearchBar);
   border: none;
   outline: none;
-  background-color: var(--searchBarSecondColor);
   color: var(--searchBarFontColor);
   border: 2px solid #dadada;
   outline: none;
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
-  background-color: #333c4d;
-  background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
-  box-shadow: 0 7px 20px 5px #00000088;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
   animation: fadeInDiv 2s 2s forwards;
   opacity: 0;
 }
 
 .wrapper h1 {
-  font-size: 130px;
+  font-size: 110px;
   font-family: 'Custom-font';
   color: white;
-  margin: 10px 40px;
+  margin: 0;
+  padding: 0;
 }
 
+
 .wrapper button {
-  margin-top: 50px;
+  margin-top: 0px;
   font-size: 24px;
   font-family: 'Custom-font';
   color: white;
@@ -67,10 +64,16 @@
   cursor: pointer;
 }
 
+.wrapper button:active {
+  transform: translateY(5px);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 @keyframes fadeInBackground {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -80,7 +83,50 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper h1 {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .wrapper h1 {
+    font-size: 50px;
+  }
+
+  .wrapper button {
+    height: 40px;
+    width: 140px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .wrapper h1 {
+    font-size: 36px;
+  }
+
+  .wrapper button {
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .wrapper h1 {
+    font-size: 24px;
+  }
+
+  .wrapper button {
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
   }
 }

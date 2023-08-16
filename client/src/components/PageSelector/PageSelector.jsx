@@ -39,7 +39,7 @@ const PageSelector = () => {
               <button
                 key={i}
                 name={i}
-                className={styles.pageNumberButton}
+                className={`${styles.pageNumberButton} ${page===i+1 ? styles.pageNumberButtonActive : ''}`}
                 onClick={() => handlePageNumber(i + 1)}
               >
                 {i + 1}
@@ -54,7 +54,7 @@ const PageSelector = () => {
             Next &raquo;
           </button>
         </div>
-        <span className={styles.pageSpan}>Page: {page}</span>
+        {/* <span className={styles.pageSpan}>Page: {page}</span> */}
       </div>
     </>
   );

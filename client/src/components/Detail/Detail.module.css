@@ -27,12 +27,20 @@ h4 {
 
 .leftRightWrapper {
     display: flex;
-    border: var(--borderGeneric);
-    background-color: var(--modulesBackgroundColor);
+    overflow: hidden;
+    padding: 30px;
+    height: 80%;
+    background-color: rgba(0, 0, 0,var(--opacity));
+    /* background-color: #282c34;
+    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, .5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px); */
     overflow: hidden;
     transition: .5s all;
-    padding: 30px;
-    height: 90%;
+    text-decoration: none;
+    border: 1px solid #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .leftSubContainer {
@@ -72,7 +80,7 @@ h4 {
 .detailImage {
     margin-top: 12px;
     width: 90%;
-    height: 75%;
+    height: 65%;
     border-radius: .5rem;
     object-fit: cover;
     overflow: hidden;

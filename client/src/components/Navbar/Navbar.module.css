@@ -6,16 +6,17 @@
     height: 70px;
     font-family: 'Custom-font';
     font-size: 16px;
-    background-color: var(--modulesBackgroundColor);
-    box-shadow: 0 7px 20px 5px #00000088;
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
     width: 100vw;
     position: fixed;
     top: 0;
     z-index: 1000;
-    border-bottom: var(--borderGeneric);
-    border-width: 2px;
+    border: 1px solid #ffffff22;
+    background-color: rgba(0, 0, 0, var(--opacity));
+    overflow: hidden;
+    transition: .5s all;
+    text-decoration: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .part1 {
@@ -60,17 +61,25 @@
 .createVideogameDiv {
     height: 100%;
 }
+
 .createVideogame {
     white-space: nowrap;
+    border: none;
+    outline: none;
+    background: none;
     width: fit-content;
     padding: 0 30px;
     height: 100%;
     border: none;
     outline: none;
-    background-color:transparent;
     color: var(--searchBarFontColor);
-    border-right: var(--borderGeneric);
-    border-width: 2px;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+    text-decoration: none;
+    border-right: 1px solid #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
     cursor: pointer;
 }
 
@@ -79,14 +88,18 @@
     display: flex;
     align-items: center;
 }
+
 .homeButton {
     padding: 0 30px;
     height: 100%;
     background-color: transparent;
     border-style: none;
     color: var(--searchBarFontColor);
-    border-right: var(--borderGeneric);
-    border-width: 2px;
+    overflow: hidden;
+    transition: .5s all;
+    text-decoration: none;
+    border-right: 1px solid #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
     cursor: pointer;
 }
 
@@ -98,8 +111,13 @@
     align-items: center;
     width: 50%;
     height: 100%;
-    border-right: var(--borderGeneric);
-    border-width: 2px;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+    text-decoration: none;
+    border-right: 1px solid #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .searchBarDiv input {
@@ -109,19 +127,23 @@
     height: 30px;
     width: 90%;
     padding-left: 10px;
-    border: none;
     outline: none;
-    background-color:var(--searchBarBackgroundColor);
+    background-color: var(--searchBarBackgroundColor);
     color: black;
-    border: var(--borderGeneric);
-    border-width: 2px;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+    text-decoration: none;
+    border: 1px solid #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 .searchIcon {
     position: absolute;
-    top:21px;
-    right:17px;
-    background-color:rgba(255, 0, 0, 0);
+    top: 21px;
+    right: 17px;
+    background-color: rgba(255, 0, 0, 0);
     border-radius: var(--borderRadiusSearchBar);
     border: none;
     font-size: 18px;
@@ -144,26 +166,30 @@
     height: 100%;
 }
 
-.sortWrapper{
+.sortWrapper {
     margin-right: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 150px;
     height: 100%;
-    background-color:transparent;
+    background-color: transparent;
     color: var(--searchBarFontColor);
 }
 
-.sortWrapper span, .selectWrapper span{
+.sortWrapper span,
+.selectWrapper span {
     margin-left: 18px;
     margin-right: 18px;
 }
 
 
-.sortButton1 {
+.sortButton {
+    display: flex;
+    align-items: center;
     color: white;
     font-family: 'Custom-font';
+    font-size: 14px;
     width: 60px;
     display: flex;
     flex-direction: column;
@@ -173,25 +199,25 @@
     cursor: pointer;
 }
 
-.sortButton2 {
-    color: white;
-    font-family: 'Custom-font';
-    width: 60px;
-    display: flex;
-    flex-direction: column;
-    height: 25px;
-    background-color: var(--navBarFiltersColor);
-    border-radius: 0 0 var(--borderRadiusSearchBar) 0;
-    cursor: pointer;
+.sortButtonActive {
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    background-color: #9ecaed;
+    color: black;
 }
+
+.sortButton:active {
+    transform: translateY(2px); 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+  }
 
 .selectButtons {
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.selectButton1 {
+.selectButton {
     color: white;
     cursor: pointer;
     height: 25px;
@@ -202,43 +228,60 @@
     border: var(--borderGeneric);
 }
 
-.selectButton2 {
+.selectButton option {
+    background-color: black;
     color: white;
-    cursor: pointer;
-    height: 25px;
-    background-color: var(--navBarFiltersColor);
-    font-family: 'Custom-font';
-    font-size: 16px;
-    border-radius: 0 0 var(--borderRadiusSearchBar) 0;
-    border: var(--borderGeneric);
 }
 
-.selectWrapper{
+.selectButton option:checked {
+    background-color: #9ecaed;
+    color: black;
+}
+
+.selectButton option:hover {
+    background-color: #9ecaed;
+    color: black;
+}
+
+.selectWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     width: 297px;
     height: 100%;
-    background-color:transparent;
+    background-color: transparent;
     color: var(--searchBarFontColor);
 }
 
 
 
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
 
 @media screen and (max-width: 1200px) {
     .searchBarDiv {
         width: 40%;
     }
-    .searchIcon{
-        right:10px;
+
+    .searchIcon {
+        right: 10px;
     }
 }
 
@@ -249,12 +292,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         text-align: center;
         padding: 0 10px;
     }
+
     .homeButton {
         max-width: 85px;
         padding: 0 20px;
     }
-    .searchIcon{
-        right:8px;
+
+    .searchIcon {
+        right: 8px;
     }
 }
 
@@ -263,6 +308,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         flex-direction: column;
         height: 140px;
     }
+
     .part1 {
         display: flex;
         justify-content: space-evenly;
@@ -270,6 +316,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         border-width: 2px;
         width: 100%;
     }
+
     .part2 {
         display: flex;
         justify-content: flex-start;
@@ -281,73 +328,93 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         justify-content: flex-start;
         width: 100%;
     }
-    .linksDiv, .homeButtonDiv, .createVideogameDiv, .filterDiv, .selectWrapper{
-        width:50%;
-    }
-    .searchBarDiv{
+
+    .linksDiv,
+    .homeButtonDiv,
+    .createVideogameDiv,
+    .filterDiv,
+    .selectWrapper {
         width: 50%;
     }
-    .homeButton, .createVideogame {
+
+    .searchBarDiv {
+        width: 50%;
+    }
+
+    .homeButton,
+    .createVideogame {
         width: 100%;
         max-width: none;
     }
-    .searchIcon{
-        right:17px;
+
+    .searchIcon {
+        right: 17px;
     }
+
     .sortWrapper {
         margin-left: 30px;
     }
-    .selectWrapper{
+
+    .selectWrapper {
         margin-right: 30px;
         justify-content: flex-end;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .homeButtonDiv{
+    .homeButtonDiv {
         width: 30%;
-    } 
-    .createVideogameDiv{
+    }
+
+    .createVideogameDiv {
         width: 70%;
     }
+
     .container {
         height: 175px;
     }
+
     .part1 {
         flex-direction: column;
     }
+
     .part2 {
         height: 75px;
-        margin:0;
+        margin: 0;
         justify-content: space-between;
     }
-    .linksDiv, .searchBarDiv {
+
+    .linksDiv,
+    .searchBarDiv {
         width: 100%;
     }
-    .searchIcon{
-        top:11px;
+
+    .searchIcon {
+        top: 11px;
         right: 15px;
     }
+
     .filterDiv {
         margin: 0;
         width: 30%;
     }
-    .selectWrapper{
+
+    .selectWrapper {
         width: 70%;
         flex-direction: column;
         margin: 0;
         align-items: flex-start;
     }
+
     .sortWrapper {
         margin: 0;
         width: 100%;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
     }
 
-    .sortWrapper span{
+    .sortWrapper span {
         margin: 0;
-        
+
     }
 }
-

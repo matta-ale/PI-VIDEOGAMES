@@ -6,4 +6,5 @@ export const SET_ORDER = 'SET_ORDER'
 export const SET_ORIGIN = 'SET_ORIGIN'
 export const SET_GENRE = 'SET_GENRE'
 export const SET_LOADING = 'SET_LOADING'
+export const SET_FIRST_RENDER = 'SET_FIRST_RENDER'
 

@@ -7,6 +7,7 @@ import {
   SET_ORIGIN,
   SET_GENRE,
   SET_LOADING,
+  SET_FIRST_RENDER
 } from './types';
 import validator from 'validator';
 
@@ -18,7 +19,8 @@ const initialState = {
     order: 'ascending',
     originFilter: 'all',
     genreFilter: 'all',
-    loading: true,
+    loading: false,
+    firstRender: true,
   },
 };
 
@@ -64,10 +66,15 @@ export const cardsReducer = (state = initialState, action) => {
       };
 
     case SET_LOADING:
-      console.log(action.payload);
       return {
         ...state,
         homeStatus: { ...state.homeStatus, loading: action.payload },
+      };
+
+      case SET_FIRST_RENDER:
+      return {
+        ...state,
+        homeStatus: { ...state.homeStatus, firstRender: action.payload },
       };
     
 

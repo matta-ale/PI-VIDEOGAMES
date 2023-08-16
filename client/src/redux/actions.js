@@ -7,6 +7,7 @@ import {
   SET_ORIGIN,
   SET_GENRE,
   SET_LOADING,
+  SET_FIRST_RENDER
 } from './types';
 import axios from 'axios';
 
@@ -108,6 +109,19 @@ export const setLoading = (data) => {
     try {
       return dispatch({
         type: SET_LOADING,
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const setFirstRender = (data) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: SET_FIRST_RENDER,
         payload: data,
       });
     } catch (error) {
