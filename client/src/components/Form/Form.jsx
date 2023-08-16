@@ -14,7 +14,7 @@ const Form = () => {
     platforms: [],
     image: '',
     released: '',
-    rating: '',
+    rating: 1,
     genreIds: [],
   });
   const [errors, setErrors] = useState({
@@ -28,7 +28,7 @@ const Form = () => {
   });
   const handleChange = (event) => {
     const property = event.target.name;
-    setVideogameData({ ...videogameData, [property]: event.target.value });
+    setVideogameData({ ...videogameData, [property]: Number(event.target.value) });
     setErrors(validation({ ...videogameData, [property]: event.target.value }));
   };
 
@@ -57,28 +57,22 @@ const Form = () => {
   const createVideogame = async (videogameData, errors) => {
     
     try {
-      if (errors=={
-        name: '',
-        description: '',
-        platforms: '',
-        image: '',
-        released: '',
-        rating: '',
-        genreIds: '',
-      })
-      {await axios.post('/videogames', videogameData);
+      const hasErrors = Object.values(errors).some(error => error !== '');
+      if (!hasErrors) {
+      await axios.post('/videogames', videogameData);
       window.alert('Videogame created');}
       else {
+        console.log(errors);
         window.alert('Please complete all the data')
       }
     } catch (error) {
-      window.alert(error.message);
+      window.alert(error.response.data);
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createVideogame(videogameData);
+    createVideogame(videogameData,errors);
   };
 
   return (

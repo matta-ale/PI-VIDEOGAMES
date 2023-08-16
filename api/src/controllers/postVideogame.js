@@ -15,8 +15,6 @@ const postVideogame = async (req, res) => {
     genreIds.length===0
   ) {
     res.status(400).send('Please complete all the data');
-  } else if(typeof rating !== 'number' || rating < 1 || rating > 5) {
-    res.status(400).send('rating must be a number between 1 and 5');
   } else if (!isValidReleaseDate(released)) {
     res.status(400).send('released must be a date with format "YYYY-MM-DD"'); 
   } else {
