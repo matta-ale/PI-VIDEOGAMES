@@ -1,13 +1,17 @@
 {
     "sqltools.connections": [
         {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true,
+                    "requestCert": true
+                }
+            },
             "previewLimit": 50,
             "server": "localhost",
-            "port": 5432,
             "driver": "PostgreSQL",
-            "name": "videogames",
-            "database": "videogames",
-            "username": "postgres"
+            "name": "dpg-cls9pbvqd2ns739472ig-a",
+            "connectString": "postgres://matta_ale:qeh5fDysUKqwINe86ZWoGxi3VEccm5Qi@dpg-cls9pbvqd2ns739472ig-a.ohio-postgres.render.com/pivideogames_pfm1"
         }
     ]
 }

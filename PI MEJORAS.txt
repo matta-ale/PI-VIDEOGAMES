@@ -1,0 +1,18 @@
+
+
+
+
+
+Mejoras propuestas: 
+deploy
+menú para celulares en la navbar
+cargar la foto 
+botón de clear filter (tanto siempre visible como cuando no encuentra algo)
+re-styling total
+trabajar más el responsive
+
+use navigate en game created
+sacar el name del search 
+agregar validación de link de imagen
+
+
