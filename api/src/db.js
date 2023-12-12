@@ -10,10 +10,10 @@ const sequelize = new Sequelize(DB_URL, {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   dialectOptions: {
     ssl: {
-      require: DB_SSL_ENABLED === 'true', // Control SSL requirement based on environment variable
-      rejectUnauthorized: DB_SSL_REJECT_UNAUTHORIZED === 'true', // Control SSL rejection based on environment variable
+      require: DB_SSL_ENABLED === "true", // Control SSL requirement based on environment variable
+      rejectUnauthorized: DB_SSL_REJECT_UNAUTHORIZED === "true", // Control SSL rejection based on environment variable
     },
-  },
+  }
 });
 const basename = path.basename(__filename);
 
