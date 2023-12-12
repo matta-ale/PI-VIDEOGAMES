@@ -2,7 +2,7 @@ export function validation(videogameData) {
     const errors = {}
     
     if(videogameData.name ==='') errors.name = "Name can't be empty"
-    if(videogameData.name.length > 255) errors.name = "Name can't have more than 255 characters (corregir esto a menos chars)"
+    if(videogameData.name.length > 30) errors.name = "Name can't have more than 30 characters"
     
     if(videogameData.description ==='') errors.description = "Description can't be empty"
     if(videogameData.description.length < 50) errors.description = "Description must have at least 50 characters"

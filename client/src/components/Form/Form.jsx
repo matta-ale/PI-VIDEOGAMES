@@ -28,7 +28,7 @@ const Form = () => {
   });
   const handleChange = (event) => {
     const property = event.target.name;
-    setVideogameData({ ...videogameData, [property]: Number(event.target.value) });
+    setVideogameData({ ...videogameData, [property]: event.target.value });
     setErrors(validation({ ...videogameData, [property]: event.target.value }));
   };
 

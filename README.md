@@ -1,5 +1,7 @@
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
+AWS: aws s3 sync dist/ s3://pi-videogames (para sincronizar con AWS)
+
 # **VIDEOGAMES** | Proyecto Individual
 
 ## **📌 OBJETIVOS**
