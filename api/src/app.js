@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const path = require('path')
 
 require('./db.js');
 
@@ -33,5 +34,21 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   console.error(err);
   res.status(status).send(message);
 });
+
+const __dirname2 = path.dirname("")
+const buildPath = path.join(__dirname2, "../client/dist")
+server.use(express.static(buildPath))
+
+server.get("/*", function(re1,res) {
+
+  res.sendFile(
+    path.join(__dirname2,"../client/dist/index.html"),
+    function(err) {
+      if(err) {
+        res.status(500).send(err)
+      }
+    }
+  )
+})
 
 module.exports = server;
