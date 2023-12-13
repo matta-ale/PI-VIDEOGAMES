@@ -39,7 +39,7 @@ const __dirname2 = path.dirname("")
 const buildPath = path.join(__dirname2, "../client/dist")
 server.use(express.static(buildPath))
 
-server.get("/*", function(re1,res) {
+server.get("/*", function(req,res) {
 
   res.sendFile(
     path.join(__dirname2,"../client/dist/index.html"),
