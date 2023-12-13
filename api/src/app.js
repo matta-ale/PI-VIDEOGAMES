@@ -39,10 +39,12 @@ const __dirname2 = path.dirname("")
 const buildPath = path.join(__dirname2, "../client/dist")
 server.use(express.static(buildPath))
 
-server.get("/*", function(re1,res) {
+const indexPath = path.resolve(__dirname2, "../client/dist/index.html");
+
+server.get("/*", function(req,res) {
 
   res.sendFile(
-    path.join(__dirname2,"../client/dist/index.html"),
+    indexPath,
     function(err) {
       if(err) {
         res.status(500).send(err)
