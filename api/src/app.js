@@ -36,10 +36,10 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 const __dirname2 = path.dirname("")
-const buildPath = path.join(__dirname2, "../client/dist")
+const buildPath = path.join(__dirname2, "../../client/dist")
 server.use(express.static(buildPath))
 
-const indexPath = path.resolve(__dirname2, "../client/dist/index.html");
+const indexPath = path.resolve(__dirname2, "../../client/dist/index.html");
 
 server.get("/*", function(req,res) {
 
