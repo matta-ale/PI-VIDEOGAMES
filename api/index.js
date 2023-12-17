@@ -3,6 +3,10 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const axios = require('axios');
 const { Genre } = require('../api/src/db.js');
+require('dotenv').config();
+const { BASE_URL} = process.env;
+
+axios.defaults.baseURL= BASE_URL
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
@@ -12,7 +16,7 @@ conn.sync({ force: true }).then(async () => {
   try {
     const genres = await Genre.findAll();
     if (genres.length===0) {
-      await axios.get('http://localhost:3001/genres');
+      await axios.get('/genres');
       console.log('getGenres endpoint called');
     }
   } catch (error) {
